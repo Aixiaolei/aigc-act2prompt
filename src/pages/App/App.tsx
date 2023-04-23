@@ -17,7 +17,7 @@ const { Header, Sider, Content } = Layout
 
 const menu = [
   {
-    key: '/',
+    key: '/aigc-act2prompt/',
     icon: <UserOutlined />,
     label: '通用大模型提示词',
   },
@@ -69,7 +69,8 @@ function App() {
           <Content style={{ padding: '0 24px', minHeight: "280px", minWidth: '1440px' }}>
 
             <Routes>
-              <Route path="/" element={<Act2Prompt />} />
+              <Route path="/aigc-act2prompt" element={<Act2Prompt />} />
+              <Route path="*" element={<Act2Prompt />} />
             </Routes>
 
           </Content>
