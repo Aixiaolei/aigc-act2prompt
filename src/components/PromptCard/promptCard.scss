@@ -1,0 +1,56 @@
+.prompt-card{
+    box-shadow: 0 5px 40px #0003!important;
+    min-width: 350px;
+    height: 450px;
+    position: relative;
+    
+    .ant-card-body{
+        padding: 14px;
+    }
+    .title{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-bottom: 12px;
+        .title-text{
+            color: #003eb3;
+        }
+    }
+
+    .subtitle{
+        margin-bottom: 10px;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 10px;
+        .subtitle-text{
+            width: 322px;
+            word-break: break-all;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            height: 44px;
+        }
+    }
+    .prompt{
+        height: 270px;
+        overflow-y: auto;
+    }
+    .foot{
+        height: 58px;
+        position: absolute;
+        bottom: 0;
+        width: 320px;
+        padding: 12px 0 12px 0 ;
+    }
+
+
+}
+
+// .width: 200px;
+// word-break: break-all;
+// text-overflow: ellipsis;
+// display: -webkit-box;
+// -webkit-box-orient: vertical;
+// -webkit-line-clamp: 2;
+// overflow: hidden;

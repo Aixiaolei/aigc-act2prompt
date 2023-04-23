@@ -1,0 +1,33 @@
+.ant-layout-header .trigger {
+  padding: 0 24px;
+  font-size: 18px;
+  line-height: 64px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.ant-layout-header .trigger:hover {
+  color: #1890ff;
+}
+
+.ant-layout-header .logo {
+  height: 32px;
+  margin: 16px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.layout{
+  height: 100vh;
+  display: flex;
+}
+.header {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px 0 rgba(0, 0, 0, 0.02);
+  background:#ffffff;
+  padding: 0;
+  z-index: 10;
+}
+
+.content-layout{
+  padding: '24px 0';
+  background: #ffffff;
+}
