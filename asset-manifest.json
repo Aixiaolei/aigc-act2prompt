@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "./aigc-act2prompt/static/css/main.6e3a8635.css",
-    "main.js": "./aigc-act2prompt/static/js/main.9ccedbfe.js",
-    "index.html": "./aigc-act2prompt/index.html"
+    "main.css": "./static/css/main.6e3a8635.css",
+    "main.js": "./static/js/main.9ccedbfe.js",
+    "index.html": "./index.html"
   },
   "entrypoints": [
     "static/css/main.6e3a8635.css",
