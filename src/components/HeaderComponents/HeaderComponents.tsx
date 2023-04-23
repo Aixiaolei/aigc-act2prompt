@@ -52,8 +52,7 @@ function HeaderComponents() {
                 </div>
 
                 <div style={{ display: 'flex' }}>
-                    <a className='github-logo'></a>    
-
+                    <a className='github-logo' href='https://github.com/Aixiaolei/aigc-act2prompt' target='_blank'></a>    
                 </div>
 
 
