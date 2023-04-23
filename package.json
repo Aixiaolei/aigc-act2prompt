@@ -1,7 +1,6 @@
 {
   "name": "aigc-web",
   "version": "0.1.0",
-  "private": true,
   "homepage": "./",
   "dependencies": {
     "@babel/core": "^7.16.0",
