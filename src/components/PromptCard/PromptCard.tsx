@@ -1,15 +1,13 @@
-import React, { useState, useMemo } from 'react';
-import { Card, Space, Tag, Tooltip, Button, Row, Col, Typography, message } from 'antd'
+import React, { useState } from 'react';
+import { Card, Space, Tag, Button, Typography, message } from 'antd'
 import { determineLanguageType } from '../../utils/index'
 import { Prompt } from '../../assets/data/prompt'
 
-import { Tags, TagType, TypeOfTag } from "../../assets/data/act";
+import {  TagType, TypeOfTag } from "../../assets/data/act";
 import './promptCard.scss'
 
 
 import {
-    SearchOutlined,
-    HeartFilled,
     PushpinFilled
 } from '@ant-design/icons'
 
@@ -44,7 +42,7 @@ function PromptsCard(props: prppsType) {
         console.log(prompt)
         navigator.permissions.query({ name: "clipboard-write" as PermissionName }).then(result => {
             // 如果有权限，或者用户同意授予权限
-            if (result.state == "granted" || result.state == "prompt") {
+            if (result.state ==="granted" || result.state === "prompt") {
                 // 将文本写入剪贴板
                 navigator.clipboard.writeText(prompt.desc_cn)
                     .then(() => {

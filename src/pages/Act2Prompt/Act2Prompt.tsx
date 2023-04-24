@@ -1,23 +1,19 @@
-import React, { useState, useMemo, useEffect } from 'react';
-import { Card, Space, Tag, Tooltip, Button, Row, Col } from 'antd';
+import React, { useState, useEffect } from 'react';
+import { Button, Row, Col } from 'antd';
 import { Typography } from 'antd';
 import './Act2Prompt.scss'
 
 import {
-    SearchOutlined,
-    HeartFilled,
-    PushpinFilled,
     EditFilled
 } from '@ant-design/icons';
 
-import { Tags, TagList, TagType,TypeOfTag } from "../../assets/data/act";
-import { Prompts, getDataBytags, Prompt } from '../../assets/data/prompt'
-import { determineLanguageType } from '../../utils/index'
+import { Tags, TagList, TagType } from "../../assets/data/act";
+import {  getDataBytags, Prompt } from '../../assets/data/prompt'
 import TagsGroup from '../../components/TagsGroup/TagsGroup';
 import PromptCard from  '../../components/PromptCard/PromptCard'
 
 
-const { Title, Text } = Typography;
+const { Title } = Typography;
 
 
 function Act2Prompt() {
@@ -62,9 +58,10 @@ function Act2Prompt() {
                 <div className='add-prompt'>
                     <Button 
                         size='middle' 
-                        href='#'
+                        href='https://github.com/Aixiaolei/aigc-act2prompt/discussions'
                         type="primary"
                         icon={<EditFilled />}
+                        target='_blank'
                     >请添加你的提示词</Button>
                 </div>
             </div>

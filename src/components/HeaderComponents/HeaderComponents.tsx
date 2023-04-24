@@ -1,34 +1,32 @@
-import React, { useState, useMemo } from 'react';
-import { Typography, Space, Tag, Tooltip, Button, Row, Col, Layout, Dropdown } from 'antd';
+import React from 'react';
+import { Typography, Layout } from 'antd';
 import Logo from '../../assets/imges/logo.jpg'
-import type { MenuProps } from 'antd';
-import { CaretDownFilled,  } from '@ant-design/icons';
 import './HeaderComponents.scss'
 
 
-const { Header, Sider, Content } = Layout
+const { Header } = Layout
 
-const { Title, Text } = Typography;
+const { Title } = Typography;
 
 
-const items: MenuProps['items'] = [
-    // {
-    //     label: (
-    //         <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-    //             1st menu item
-    //         </a>
-    //     ),
-    //     key: '0',
-    // },
-    // {
-    //     label: (
-    //         <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-    //             2nd menu item
-    //         </a>
-    //     ),
-    //     key: '1',
-    // },
-];
+// const items: MenuProps['items'] = [
+//     // {
+//     //     label: (
+//     //         <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+//     //             1st menu item
+//     //         </a>
+//     //     ),
+//     //     key: '0',
+//     // },
+//     // {
+//     //     label: (
+//     //         <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+//     //             2nd menu item
+//     //         </a>
+//     //     ),
+//     //     key: '1',
+//     // },
+// ];
 
 
 
@@ -39,9 +37,9 @@ function HeaderComponents() {
                 <div style={{ display: 'flex' }}>
                     <img src={Logo} className='logo' />
                     <Title level={3} className='title-text' >AIGC-提示词大全</Title>
-                    <a className='dropdown dropdown-one'>
+                    {/* <a className='dropdown dropdown-one'>
                     案例
-                    </a>
+                    </a> */}
 
                     {/* <Dropdown menu={{ items }} className='dropdown'>
                         { <Space style={{ fontSize: '20px' }} className=''>

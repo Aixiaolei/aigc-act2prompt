@@ -1,11 +1,11 @@
-import React, { useState, useMemo } from 'react';
-import { Card, Space, Tag, Tooltip, Button, Row, Col } from 'antd';
+import React, { useState } from 'react';
+import {  Space, Button } from 'antd';
 import { TagType, TypeOfTag } from "../../assets/data/act";
 import { Prompts } from '../../assets/data/prompt'
 import { Typography } from 'antd';
 import './TagsGroup.scss'
 
-const { Title, Text } = Typography;
+const { Title } = Typography;
 
 type typeTagGroup = {
     tagList: TagType[],

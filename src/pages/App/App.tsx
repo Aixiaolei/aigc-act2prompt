@@ -1,9 +1,7 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
-import React, { useMemo, useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
   UserOutlined,
 } from '@ant-design/icons';
 import { Layout, Menu, theme } from 'antd';
@@ -12,7 +10,7 @@ import './App.scss'
 
 import { Act2Prompt } from '../index'
 import HeaderComponents from '../../components/HeaderComponents/HeaderComponents';
-const { Header, Sider, Content } = Layout
+const { Sider, Content } = Layout
 
 
 const menu = [
