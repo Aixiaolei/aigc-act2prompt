@@ -1,6 +1,11 @@
 <h1 align="center">
 🔍AIGC-提示词大全
 </h1>
+
+<p align="center">
+    <a href="./README-en.md">English</a> | 中文
+</p>
+
 <p align="center">
     <em>让生产力加倍的 AIGC 提示词</em>
 </p>
@@ -29,6 +34,10 @@
 - 🆕 **定期更新**：我们会定期更新提示词
   
 - 📦 **开箱即用**：<https://aixiaolei.github.io/aigc-act2prompt/>
+
+## change-log
+
+新增后缀提示词
 
 
 ## 使用说明
@@ -87,7 +96,7 @@ chatGPT可以设置全局上下文，无需每次都输入prompt,但在new bing�
 # install
 yarn
 
-# 运行开发i环境
+# 运行开发环境
 yarn start
 
 # 生成文件，配合nginx或者live server可直接部署
