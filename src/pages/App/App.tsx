@@ -1,25 +1,30 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-  UserOutlined,
-} from '@ant-design/icons';
 import { Layout, Menu, theme } from 'antd';
 import type { MenuProps } from 'antd'
 import './App.scss'
 
-import { Act2Prompt } from '../index'
+import { Act2Prompt, SuffixPrompt } from '../index'
 import HeaderComponents from '../../components/HeaderComponents/HeaderComponents';
+
 const { Sider, Content } = Layout
 
 
 const menu = [
   {
     key: '/aigc-act2prompt/',
-    icon: <UserOutlined />,
     label: '通用大模型提示词',
   },
+  {
+    key: '/aigc-act2prompt/suffix',
+    label: '后缀提示词',
+  },
 ]
+
+function Demo (){
+  return <div>demo</div>
+}
 
 function App() {
 
@@ -68,6 +73,7 @@ function App() {
 
             <Routes>
               <Route path="/aigc-act2prompt" element={<Act2Prompt />} />
+              <Route path="/aigc-act2prompt/suffix" element={<SuffixPrompt />} />
               <Route path="*" element={<Act2Prompt />} />
             </Routes>
 
