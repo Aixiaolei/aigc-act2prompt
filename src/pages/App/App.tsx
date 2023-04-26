@@ -1,5 +1,5 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Layout, Menu, theme } from 'antd';
 import type { MenuProps } from 'antd'
@@ -22,11 +22,26 @@ const menu = [
   },
 ]
 
-function Demo (){
-  return <div>demo</div>
-}
 
 function App() {
+
+  const navigate = useNavigate()
+  const location = useLocation()
+
+  const [defaultSelectedKeys, setDefaultSelectedKeys] = useState([location.pathname])
+
+
+  useEffect(() => {
+    setDefaultSelectedKeys([location.pathname])
+  },[location])
+
+  const {
+    token: { colorBgContainer },
+  } = theme.useToken();
+
+  const menuClick: MenuProps['onClick'] = (e) => {
+    navigate(e.key);
+  }
 
   const getSider = () => {
     const pathname = location.pathname
@@ -39,25 +54,14 @@ function App() {
       <Sider style={{ background: colorBgContainer, borderRight: '1px solid rgba(5, 5, 5, 0.06)' }} width={200}>
         <Menu
           mode="inline"
-          defaultSelectedKeys={[location.pathname]}
+          defaultSelectedKeys={defaultSelectedKeys}
+          selectedKeys={defaultSelectedKeys}
           items={menu}
           onClick={menuClick}
           style={{ borderInlineEnd: 'none' }}
         />
       </Sider>
     )
-  }
-
-
-  const navigate = useNavigate()
-  const location = useLocation()
-
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
-
-  const menuClick: MenuProps['onClick'] = (e) => {
-    navigate(e.key);
   }
 
   return (
