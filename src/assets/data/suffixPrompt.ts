@@ -78,4 +78,19 @@ export const SuffixPromptData: Prompt[] = [
         "tags": [
         ]
     },
+    {
+        "title": "需要/排除指定国家的搜索环境",
+        "description": "",
+        "desc_cn": "Need/Exclude [Country] Search Environment",
+        "remark": "放在问题末尾，用来指定数据获取环境",
+        "title_en": "Require/exclude  search environment for specified countries",
+        "desc_en": "Require/exclude search environment for specified countries",
+        "remark_en": "Placed at the end of the question to specify the data acquisition environment",
+        "preview": null,
+        "website": "https://github.com/f/awesome-chatgpt-prompts#act-as-an-english-translator-and-improver",
+        "source": null,
+        "language":'CN',
+        "tags": [
+        ]
+    },
 ]
