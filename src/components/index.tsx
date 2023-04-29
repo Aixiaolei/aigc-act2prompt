@@ -1,0 +1,1 @@
+export { default as PromptWordEditor } from './PromptWordEditor/PromptWordEditor';

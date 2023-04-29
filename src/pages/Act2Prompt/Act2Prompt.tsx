@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Row, Col } from 'antd';
+import { Button, Row, Col, Drawer, Space } from 'antd';
 import { Typography } from 'antd';
 import './Act2Prompt.scss'
 
@@ -8,13 +8,19 @@ import {
 } from '@ant-design/icons';
 
 import { Tags, TagList, TagType } from "../../assets/data/act";
-import {  getDataBytags, Prompt } from '../../assets/data/prompt'
+import { getDataBytags, Prompt } from '../../assets/data/prompt'
 import TagsGroup from '../../components/TagsGroup/TagsGroup';
-import PromptCard from  '../../components/PromptCard/PromptCard'
+import PromptCard from '../../components/PromptCard/PromptCard'
+
+import Store from '../../store'
+import {PromptWordEditor} from '../../components/index'
+import { observer } from 'mobx-react'
+
 
 
 const { Title } = Typography;
 
+const { drawerOpen, drawerData, openDrawer, drawerClose } = Store
 
 function Act2Prompt() {
 
@@ -23,15 +29,15 @@ function Act2Prompt() {
 
     useEffect(() => {
         setPromptCardsData(getDataBytags(searchTags))
-    },[searchTags])
+    }, [searchTags])
 
 
-    const tagClick = (tag:TagType[]) => {
+    const tagClick = (tag: TagType[]) => {
         setSearchTags(tag)
     }
 
     const promptCards = () => {
-        if(!promptCardsData){
+        if (!promptCardsData) {
             return null
         }
         let cards = []
@@ -40,7 +46,7 @@ function Act2Prompt() {
             const language = prompt.language as string
             cards.push(
                 <Col span={6} key={index}>
-                    <PromptCard prompt={prompt} Tags={Tags} language={language}  />
+                    <PromptCard prompt={prompt} Tags={Tags} language={language} />
                 </Col>
             )
         }
@@ -49,28 +55,33 @@ function Act2Prompt() {
     }
 
     return (
-        <div className='act2prompt'>
-            <div className='theme'>
-                <Title className='title'>
-                    AIGC-提示词大全
-                </Title>
-                <Title level={5} className='subtitle'>让生产力加倍的AIGC提示词</Title>
-                <div className='add-prompt'>
-                    <Button 
-                        size='middle' 
-                        href='https://github.com/Aixiaolei/aigc-act2prompt/discussions'
-                        type="primary"
-                        icon={<EditFilled />}
-                        target='_blank'
-                    >请添加你的提示词</Button>
+        <>
+            <PromptWordEditor/>
+            <div className='act2prompt'>
+                <div className='theme'>
+                    <Title className='title'>
+                        AIGC-提示词大全
+                    </Title>
+                    <Title level={5} className='subtitle'>让生产力加倍的AIGC提示词</Title>
+                    <div className='add-prompt'>
+                        <Button
+                            size='middle'
+                            href='https://github.com/Aixiaolei/aigc-act2prompt/discussions'
+                            type="primary"
+                            icon={<EditFilled />}
+                            target='_blank'
+                        >请添加你的提示词</Button>
+                    </div>
                 </div>
-            </div>
-            <TagsGroup tagList={TagList} tagData={Tags} clickCallBack={tagClick}/>
-            <Row gutter={[16, 24]} >
-                { promptCards() }
-            </Row>
-        </div >
+                <TagsGroup tagList={TagList} tagData={Tags} clickCallBack={tagClick} />
+                <Row gutter={[16, 24]} >
+                    {promptCards()}
+                </Row>
+            </div >
+
+        </>
+
     )
 }
 
-export default Act2Prompt
+export default observer(Act2Prompt)

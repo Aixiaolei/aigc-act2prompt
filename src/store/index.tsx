@@ -2,16 +2,27 @@ import { makeObservable, observable, action, computed } from "mobx";
 import type {Prompt} from '../assets/data/prompt'
 
 
-class Todo {
+class Store {
     constructor() {
         makeObservable(this);
     }
-    @observable modelOpen = false
-    @observable modelData : (Prompt | null) = null
+    @observable drawerOpen = true
+    @observable drawerData : (Prompt | null) = null
 
-    @action changeModel(modelData: (Prompt | null)){
-        
+    @action 
+    openDrawer = (modelData: (Prompt | null))=>{  
+        this.drawerOpen = true
     }
+    @action 
+    drawerClose = () => {
+        this.drawerOpen = false
+    }
+    @action
+    copy = () => {
+
+    }
+
+
+    
 }
-const todoStore = new Todo();
-export default todoStore;
+export default new Store()

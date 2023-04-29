@@ -7,6 +7,9 @@ import './App.scss'
 
 import { Act2Prompt, SuffixPrompt } from '../index'
 import HeaderComponents from '../../components/HeaderComponents/HeaderComponents';
+import { observer } from 'mobx-react'
+
+
 
 const { Sider, Content } = Layout
 
@@ -23,7 +26,9 @@ const menu = [
 ]
 
 
-function App() {
+
+
+function _App() {
 
   const navigate = useNavigate()
   const location = useLocation()
@@ -68,7 +73,6 @@ function App() {
     <Layout className='layout'>
       <HeaderComponents />
       <Content>
-
         <Layout style={{ padding: '24px 0', background: colorBgContainer, height: "calc(100vh - 64px)" }}>
 
           {getSider()}
@@ -91,5 +95,7 @@ function App() {
 
 
 }
+
+const App = observer(_App)
 
 export default App;
