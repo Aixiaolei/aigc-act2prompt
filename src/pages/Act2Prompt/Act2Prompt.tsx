@@ -1,3 +1,7 @@
+
+
+
+
 import React, { useState, useEffect } from 'react';
 import { Button, Row, Col, Drawer, Space } from 'antd';
 import { Typography } from 'antd';
@@ -12,18 +16,15 @@ import { getDataBytags, Prompt } from '../../assets/data/prompt'
 import TagsGroup from '../../components/TagsGroup/TagsGroup';
 import PromptCard from '../../components/PromptCard/PromptCard'
 
-import Store from '../../store'
-import {PromptWordEditor} from '../../components/index'
-import { observer } from 'mobx-react'
+
+import { PromptWordEditor } from '../../components'
 
 
 
 const { Title } = Typography;
 
-const { drawerOpen, drawerData, openDrawer, drawerClose } = Store
 
-function Act2Prompt() {
-
+const Act2Prompt = () => {
     const [promptCardsData, setPromptCardsData] = useState<Prompt[]>()
     const [searchTags, setSearchTags] = useState<TagType[]>([])
 
@@ -56,7 +57,7 @@ function Act2Prompt() {
 
     return (
         <>
-            <PromptWordEditor/>
+            <PromptWordEditor />
             <div className='act2prompt'>
                 <div className='theme'>
                     <Title className='title'>
@@ -82,6 +83,11 @@ function Act2Prompt() {
         </>
 
     )
+
+
+
 }
 
-export default observer(Act2Prompt)
+
+
+export default Act2Prompt

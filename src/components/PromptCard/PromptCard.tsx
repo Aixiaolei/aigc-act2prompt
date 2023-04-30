@@ -1,6 +1,6 @@
 import React, { useState, ChangeEvent } from 'react';
 import { Card, Space, Tag, Button, Typography, message, Drawer, Input } from 'antd'
-import { determineLanguageType } from '../../utils/index'
+import { determineLanguageType, setClipboard } from '../../utils'
 import { Prompt } from '../../assets/data/prompt'
 
 import { TagType, TypeOfTag } from "../../assets/data/act";
@@ -10,7 +10,8 @@ import {
     PushpinFilled
 } from '@ant-design/icons'
 
-import Store from '../../store'
+import { observer } from 'mobx-react'
+import PromptWordEditorStore from '../../store/PromptWordEditorStore'
 
 
 const { Title, Text } = Typography;
@@ -30,9 +31,7 @@ const error = () => {
     message.error("写入失败");
 };
 
-
-function PromptsCard(props: prppsType) {
-
+const PromptsCard = observer((props: prppsType) => {
     const { prompt, Tags, language } = props
     const tabs = prompt.tags
 
@@ -42,27 +41,14 @@ function PromptsCard(props: prppsType) {
 
 
     const edit = () => {
-        Store.drawerOpen = true
-        Store.openDrawer (null)
+        let str = _language === 'CN' ? prompt.desc_cn : prompt.desc_en
+        PromptWordEditorStore.openEditor(str)
     }
-
-
 
     const copy = () => {
-        navigator.permissions.query({ name: "clipboard-write" as PermissionName }).then(result => {
-            // 如果有权限，或者用户同意授予权限
-            if (result.state === "granted" || result.state === "prompt") {
-                // 将文本写入剪贴板
-                navigator.clipboard.writeText(prompt.desc_cn)
-                    .then(() => {
-                        success()
-                    })
-                    .catch(err => {
-                        error()
-                    });
-            }
-        });
+        setClipboard(prompt.desc_cn, success, error)
     }
+
 
     const switchLanguage = () => {
         if (_language === 'EN') {
@@ -71,7 +57,6 @@ function PromptsCard(props: prppsType) {
             setLanguage('EN')
         }
     }
-
     return (
 
         <Card bordered={false} className='prompt-card'>
@@ -83,9 +68,9 @@ function PromptsCard(props: prppsType) {
                 <div className='title-operate'>
                     {/* <HeartFilled style={{ color: '#e9669e', fontSize: "16px", marginRight: '8px' }} /> */}
                     <Space size={4} wrap >
-                        <Button className='' size='small' onClick={switchLanguage}>{_language}</Button>
-                        <Button className='' size='small' onClick={copy}>{languageObj.copyBtnText}</Button>
-                        <Button className='' size='small' onClick={edit}>{languageObj.editBtnText}</Button>
+                        <Button  size='small' onClick={switchLanguage}>{_language}</Button>
+                        <Button  size='small' onClick={copy}>{languageObj.copyBtnText}</Button>
+                        <Button  size='small' onClick={edit}>{languageObj.editBtnText}</Button>
 
                     </Space>
 
@@ -119,11 +104,8 @@ function PromptsCard(props: prppsType) {
                 }
             </div>
         </Card>
-
-
-
     )
 
-}
+})
 
 export default PromptsCard

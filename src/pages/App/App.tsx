@@ -7,7 +7,8 @@ import './App.scss'
 
 import { Act2Prompt, SuffixPrompt } from '../index'
 import HeaderComponents from '../../components/HeaderComponents/HeaderComponents';
-import { observer } from 'mobx-react'
+
+import { PromptWordEditor } from '../../components'
 
 
 
@@ -28,7 +29,7 @@ const menu = [
 
 
 
-function _App() {
+function App() {
 
   const navigate = useNavigate()
   const location = useLocation()
@@ -71,6 +72,7 @@ function _App() {
 
   return (
     <Layout className='layout'>
+      <PromptWordEditor/>
       <HeaderComponents />
       <Content>
         <Layout style={{ padding: '24px 0', background: colorBgContainer, height: "calc(100vh - 64px)" }}>
@@ -96,6 +98,5 @@ function _App() {
 
 }
 
-const App = observer(_App)
 
 export default App;

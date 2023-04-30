@@ -18,3 +18,20 @@ export const determineLanguageType = (language:string) => {
             }
     }
 }
+
+
+export const setClipboard = (str:string, success = function(){}, error = function(){}) => {
+    navigator.permissions.query({ name: "clipboard-write" as PermissionName }).then(result => {
+        // 如果有权限，或者用户同意授予权限
+        if (result.state === "granted" || result.state === "prompt") {
+            // 将文本写入剪贴板
+            navigator.clipboard.writeText(str)
+                .then(() => {
+                    success()
+                })
+                .catch(err => {
+                    error()
+                });
+        }
+    });
+}
