@@ -52,6 +52,8 @@ The effect of using prompt words
 
 Add suffix prompt words
 
+Added editing function
+
 
 
 ## Instructions for use
