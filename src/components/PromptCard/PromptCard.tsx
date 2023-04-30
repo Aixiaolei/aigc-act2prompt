@@ -1,5 +1,5 @@
-import React, { useState, ChangeEvent } from 'react';
-import { Card, Space, Tag, Button, Typography, message, Drawer, Input } from 'antd'
+import React, { useState } from 'react';
+import { Card, Space, Tag, Button, Typography, message } from 'antd'
 import { determineLanguageType, setClipboard } from '../../utils'
 import { Prompt } from '../../assets/data/prompt'
 

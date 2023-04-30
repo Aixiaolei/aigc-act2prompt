@@ -1,6 +1,5 @@
 import React from 'react';
 import { Typography, Layout, Dropdown, Space } from 'antd';
-import { Link } from 'react-router-dom'
 import Logo from '../../assets/imges/logo.jpg'
 import './HeaderComponents.scss'
 import type { MenuProps } from 'antd';

@@ -45,7 +45,6 @@ const PromptWordEditor = observer(() => {
     }
 
     const save = () => {
-        console.log(value)
         setTimeout(() => {
             localStorage.setItem(AIGC_LAST_VALUE_KEY, value)
             setLastValue(value)

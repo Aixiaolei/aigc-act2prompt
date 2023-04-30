@@ -3,7 +3,7 @@
 
 
 import React, { useState, useEffect } from 'react';
-import { Button, Row, Col, Drawer, Space } from 'antd';
+import { Button, Row, Col } from 'antd';
 import { Typography } from 'antd';
 import './Act2Prompt.scss'
 
@@ -16,10 +16,7 @@ import { getDataBytags, Prompt } from '../../assets/data/prompt'
 import TagsGroup from '../../components/TagsGroup/TagsGroup';
 import PromptCard from '../../components/PromptCard/PromptCard'
 
-
 import { PromptWordEditor } from '../../components'
-
-
 
 const { Title } = Typography;
 

@@ -1,11 +1,11 @@
 import React from "react";
 import { SuffixPromptData } from '../../assets/data/suffixPrompt'
-import { Row, Button, Typography, Col } from 'antd'
+import { Row, Typography, Col } from 'antd'
 import { Tags } from "../../assets/data/act";
 import PromptCard from '../../components/PromptCard/PromptCard'
 import './SuffixPrompt.scss'
 
-const { Title, Text } = Typography;
+const { Title } = Typography;
 
 function SuffixPrompt() {
 

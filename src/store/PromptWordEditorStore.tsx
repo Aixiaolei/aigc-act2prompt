@@ -1,5 +1,4 @@
 import { makeAutoObservable } from 'mobx';
-import type { Prompt } from '../assets/data/prompt'
 
 class PromptWordEditorStore {
   editorSwitch: boolean = false;
