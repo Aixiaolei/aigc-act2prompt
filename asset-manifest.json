@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "./static/css/main.94965076.css",
-    "main.js": "./static/js/main.76d62c2f.js",
+    "main.js": "./static/js/main.69566bfe.js",
     "index.html": "./index.html"
   },
   "entrypoints": [
     "static/css/main.94965076.css",
-    "static/js/main.76d62c2f.js"
+    "static/js/main.69566bfe.js"
   ]
 }
