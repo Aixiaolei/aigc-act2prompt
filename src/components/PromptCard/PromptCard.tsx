@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, Space, Tag, Button, Typography, message } from 'antd'
+import { Card, Space, Tag, Button, Typography, message, Tooltip } from 'antd'
 import { determineLanguageType, setClipboard } from '../../utils'
 import { Prompt } from '../../assets/data/prompt'
 
@@ -68,9 +68,9 @@ const PromptsCard = observer((props: prppsType) => {
                 <div className='title-operate'>
                     {/* <HeartFilled style={{ color: '#e9669e', fontSize: "16px", marginRight: '8px' }} /> */}
                     <Space size={4} wrap >
-                        <Button  size='small' onClick={switchLanguage}>{_language}</Button>
-                        <Button  size='small' onClick={copy}>{languageObj.copyBtnText}</Button>
-                        <Button  size='small' onClick={edit}>{languageObj.editBtnText}</Button>
+                        <Button size='small' onClick={switchLanguage}>{_language}</Button>
+                        <Button size='small' onClick={copy}>{languageObj.copyBtnText}</Button>
+                        <Button size='small' onClick={edit}>{languageObj.editBtnText}</Button>
 
                     </Space>
 
@@ -79,12 +79,16 @@ const PromptsCard = observer((props: prppsType) => {
 
             </div>
             <div className='subtitle'>
+                <Tooltip placement="top" title={_language === 'CN' ? prompt.remark : prompt.remark_en}>
 
-                <Text className='subtitle-text'>
-                    <PushpinFilled style={{ color: "#b37feb", display: 'inline-block' }} />
-                    &nbsp;
-                    {_language === 'CN' ? prompt.remark : prompt.remark_en}
-                </Text>
+                    <Text className='subtitle-text'>
+                        <PushpinFilled style={{ color: "#b37feb", display: 'inline-block' }} />
+                        &nbsp;
+                        {_language === 'CN' ? prompt.remark : prompt.remark_en}
+                    </Text>
+
+                </Tooltip>
+
 
             </div>
             <div className='prompt'>

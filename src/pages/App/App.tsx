@@ -5,7 +5,7 @@ import { Layout, Menu, theme } from 'antd';
 import type { MenuProps } from 'antd'
 import './App.scss'
 
-import { Act2Prompt, SuffixPrompt } from '../index'
+import { Act2Prompt, SuffixPrompt, PromptFoundationTemplate } from '../index'
 import HeaderComponents from '../../components/HeaderComponents/HeaderComponents';
 
 import { PromptWordEditor } from '../../components'
@@ -23,6 +23,10 @@ const menu = [
   {
     key: '/aigc-act2prompt/suffix',
     label: '后缀提示词',
+  },
+  {
+    key: '/aigc-act2prompt/template',
+    label: '提示词模板',
   },
 ]
 
@@ -84,6 +88,8 @@ function App() {
             <Routes>
               <Route path="/aigc-act2prompt" element={<Act2Prompt />} />
               <Route path="/aigc-act2prompt/suffix" element={<SuffixPrompt />} />
+              <Route path="/aigc-act2prompt/template" element={<PromptFoundationTemplate />} />
+              
               <Route path="*" element={<Act2Prompt />} />
             </Routes>
 
