@@ -1,6 +1,6 @@
 {
   "name": "aigc-act2prompt",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "homepage": "./",
   "dependencies": {
     "@babel/core": "^7.16.0",
