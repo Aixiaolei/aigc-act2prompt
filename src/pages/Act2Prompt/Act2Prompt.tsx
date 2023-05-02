@@ -1,9 +1,5 @@
-
-
-
-
 import React, { useState, useEffect } from 'react';
-import { Button, Row, Col } from 'antd';
+import { Button, Row, Col, Input } from 'antd';
 import { Typography } from 'antd';
 import './Act2Prompt.scss'
 
@@ -18,16 +14,22 @@ import PromptCard from '../../components/PromptCard/PromptCard'
 
 import { PromptWordEditor } from '../../components'
 
+import { throttle } from 'lodash-es';
+
+
+
 const { Title } = Typography;
+const { Search } = Input;
 
 
 const Act2Prompt = () => {
     const [promptCardsData, setPromptCardsData] = useState<Prompt[]>()
     const [searchTags, setSearchTags] = useState<TagType[]>([])
+    const [searchStr, setSearchStr] = useState('')
 
     useEffect(() => {
-        setPromptCardsData(getDataBytags(searchTags))
-    }, [searchTags])
+        setPromptCardsData(getDataBytags(searchTags, searchStr))
+    }, [searchTags, searchStr])
 
 
     const tagClick = (tag: TagType[]) => {
@@ -52,6 +54,10 @@ const Act2Prompt = () => {
         return cards
     }
 
+    const cardsSearch = (value:string) => {
+        setSearchStr(value)
+    }
+
     return (
         <>
             <PromptWordEditor />
@@ -71,10 +77,22 @@ const Act2Prompt = () => {
                         >请添加你的提示词</Button>
                     </div>
                 </div>
+
                 <TagsGroup tagList={TagList} tagData={Tags} clickCallBack={tagClick} />
-                <Row gutter={[16, 24]} >
-                    {promptCards()}
-                </Row>
+
+                <div>
+                    <Search
+                        placeholder="提示词搜索"
+                        allowClear
+                        enterButton="搜索"
+                        size="large"
+                        onSearch={cardsSearch}
+                        className='prompt-cards-search'
+                    />
+                    <Row gutter={[16, 24]} >
+                        {promptCards()}
+                    </Row>
+                </div>
             </div >
 
         </>
